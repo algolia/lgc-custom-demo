@@ -32,10 +32,13 @@
               slot-scope="{ item }"
             >
               <div class="image-wrapper">
-                <img :src="item.image_link" alt="" />
+                <img
+                  :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+                  alt=""
+                />
               </div>
               <div class="infos">
-                <ais-highlight attribute="title" :hit="item" />
+                <ais-highlight attribute="name" :hit="item" />
               </div>
             </div>
           </ais-hits>

@@ -4,10 +4,13 @@
     <ul class="hits-list hits-list-modal" slot-scope="{ items }">
       <li class="hit-list" v-for="item in items" :key="item.objectID">
         <div class="image-wrapper">
-          <img :src="item.image_link" alt="" />
+          <img
+            :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+            alt=""
+          />
         </div>
         <div class="infos">
-          <ais-highlight class="title" :hit="item" attribute="title" />
+          <ais-highlight class="title" :hit="item" attribute="name" />
         </div>
         <p>$ {{ item.price }}.00</p>
       </li>
