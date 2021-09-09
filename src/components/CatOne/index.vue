@@ -1,5 +1,6 @@
 <template>
   <div class="search-page">
+    <Banner/>
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
@@ -51,6 +52,7 @@
 
 <script>
 import Filters from "@/components/Filters";
+import Banner from "../Banner/index.vue"
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
@@ -61,6 +63,7 @@ export default {
   },
   components: {
     Filters,
+    Banner
   },
   methods: {
     showFiltersMethod() {

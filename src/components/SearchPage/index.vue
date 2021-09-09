@@ -28,6 +28,7 @@
 <script>
 // import SearchBox from "@/components/SearchBox";
 import { mapActions } from "vuex";
+
 export default {
   name: "SearchPage",
   props: ["hits"],
@@ -37,7 +38,7 @@ export default {
   methods: { ...mapActions("SearchModule", ["selectedProduct"]) },
 };
 </script>
-g
+
 
 <style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
