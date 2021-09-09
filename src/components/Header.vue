@@ -3,7 +3,7 @@
     <img :src="headerUp" alt="" class="headerUp" />
     <div class="header-wrapper">
       <div class="list-img-wrapper">
-        <img :src="logo" alt="logo" class="logo" @click="logoFunction()" />
+        <img src="https://www.lgcstandards.com/medias/sys_master/root/h6c/hfb/10397484711966/10397484711966.jpg" alt="logo" class="logo" @click="logoFunction()" />
         <ul>
           <li @click="catOneFunction(), deletePersonna()">
             CAT ONE
@@ -53,7 +53,6 @@
 <script>
 // Import the assets
 import headerUp from "../assets/images/headerUp.png";
-import logo from "../assets/images/logo.jpeg";
 import searchBox from "../components/SearchBox";
 import { mapActions } from "vuex";
 
@@ -67,7 +66,6 @@ export default {
   data() {
     return {
       headerUp,
-      logo,
       catOne: false,
       searchVisible: false,
       catTwo: false,

@@ -2,7 +2,7 @@
   <div>
     <ais-instant-search
       :search-client="searchClient"
-      index-name="rayban_merged"
+      index-name="lgc_demo"
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />
@@ -34,8 +34,8 @@ export default {
     return {
       showFederatedSearch: true,
       searchClient: algoliasearch(
-        "JDBD6EJM33",
-        "0fe54b2e3991d370c91376981aff9d48"
+        "RSBCBF0EG8",
+        "e740caae53c72e09463a1117854491d5"
       ),
     };
   },
@@ -55,4 +55,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+@import "@/assets/scss/variables/variables.scss";
+body{
+  background-color: $primary-color;
+}
+</style>
