@@ -1,9 +1,17 @@
 <template>
   <ais-hits>
     <ul class="hits-list hits-list-modal" slot-scope="{ items }">
-      <li class="hit-list" v-for="item in items" :key="item.objectID">
+      <li
+        class="hit-list"
+        v-for="item in items"
+        :key="item.objectID"
+        @click="selectedProduct(item)"
+      >
         <div class="image-wrapper">
-          <img :src="'https://www.lgcstandards.com/'+item.brand.logo.url" alt="" />
+          <img
+            :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+            alt=""
+          />
         </div>
         <div class="infos">
           <ais-highlight class="title" :hit="item" attribute="name" />
@@ -15,7 +23,12 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+export default {
+  methods: {
+    ...mapActions("SearchModule", ["selectedProduct"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>
