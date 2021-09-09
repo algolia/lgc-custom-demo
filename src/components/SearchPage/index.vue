@@ -21,6 +21,11 @@
         <div class="infos">
           <ais-highlight attribute="name" :hit="item" />
         </div>
+        <p class="prices">
+          To view pricing
+          <br />
+          <span>Login/Register</span>
+        </p>
       </div>
     </ais-hits>
   </div>
@@ -38,7 +43,6 @@ export default {
   methods: { ...mapActions("SearchModule", ["selectedProduct"]) },
 };
 </script>
-
 
 <style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
@@ -121,5 +125,12 @@ export default {
 .federated-title {
   margin-left: 3rem;
   margin-bottom: 1rem;
+}
+
+.prices {
+  span {
+    color: $second-color;
+    font-weight: 400;
+  }
 }
 </style>
