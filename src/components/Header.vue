@@ -8,7 +8,7 @@
           <li @click="catOneFunction(), deletePersonna()">
             CAT ONE
           </li>
-          <li @click="catTwoFunction()">
+          <!-- <li @click="catTwoFunction()">
             CAT TWO
           </li>
           <li class="design">
@@ -17,7 +17,7 @@
           <li>CAT 4</li>
           <li>CAT 5</li>
           <li>CAT 6</li>
-          <li class="promo">CAT 7</li>
+          <li class="promo">CAT 7</li> -->
           <li>
             <SelectPersona
               @selectedPersonna="selectedPersonna"

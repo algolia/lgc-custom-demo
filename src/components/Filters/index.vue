@@ -11,13 +11,13 @@
       <div>
         <div class="filters-content">
           <div class="title" @click="showShapeMethod()">
-            <h3>FRAME SHAPES</h3>
+            <h3>BRAND</h3>
             <p>-</p>
           </div>
           <transition name="fade">
             <ais-refinement-list
               v-if="!showShapes"
-              attribute="FrameShapeDescription"
+              attribute="brand.name"
               searchable
               show-more
             >
@@ -83,7 +83,7 @@
           </transition>
           <div class="line"></div>
         </div>
-        <div class="filters-content">
+        <!-- <div class="filters-content">
           <div class="title" @click="showGenderMethod()">
             <h3>GENDER</h3>
             <p>-</p>
@@ -119,8 +119,8 @@
             </ais-refinement-list>
           </transition>
           <div class="line"></div>
-        </div>
-        <div class="filters-content">
+        </div> -->
+        <!-- <div class="filters-content">
           <div class="title" @click="showColorMethod()">
             <h3>COLORS</h3>
             <p>-</p>
@@ -156,8 +156,8 @@
             </ais-refinement-list>
           </transition>
           <div class="line"></div>
-        </div>
-        <div class="filters-content">
+        </div> -->
+        <!-- <div class="filters-content">
           <div class="title" @click="showSizeMethod()">
             <h3>SIZE</h3>
             <p>-</p>
@@ -193,7 +193,7 @@
             </ais-refinement-list>
           </transition>
           <div class="line"></div>
-        </div>
+        </div> -->
         <!-- <div class="filters-content">
           <div class="title">
             <h3>PRICE</h3>
@@ -265,7 +265,7 @@ export default {
 
 <style lang="scss" scoped>
 .filters {
-  width: 70%;
+  width: 25%;
   will-change: width;
   margin: 0 auto;
   .filterBtn {

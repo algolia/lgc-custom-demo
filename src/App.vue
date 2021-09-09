@@ -2,7 +2,7 @@
   <div>
     <ais-instant-search
       :search-client="searchClient"
-      index-name="lgc_demo"
+      index-name="lgc-demo"
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />

@@ -4,15 +4,17 @@
     <div class="modal-detail">
       <div class="product-side">
         <div class="modal-images">
-          <img :src="getProductDetails.image_link" alt="" />
+          <img
+            :src="'https://www.lgcstandards.com/' + getProductDetails.brand.logo.url"
+            alt=""
+          />
         </div>
       </div>
       <div class="fake-filters">
         <div class="modal-infos">
-          <h3>{{ getProductDetails.title }}</h3>
+          <h3>{{ getProductDetails.name }}</h3>
           <p>${{ getProductDetails.price }}</p>
           <p>{{ getProductDetails.description }}</p>
-          <p class="btn-modal">Buy me</p>
         </div>
         <img :src="pdp" alt="" />
       </div>

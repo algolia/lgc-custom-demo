@@ -5,7 +5,7 @@
     <h3>Bought together</h3>
     <ais-instant-search
       :search-client="searchClient"
-      index-name="rayban_merged"
+      index-name="lgc-demo"
     >
       <ais-configure :hits-per-page.camel="7">
         <HitsCarouselBought />
@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       searchClient: algoliasearch(
-        "JDBD6EJM33",
-        "0fe54b2e3991d370c91376981aff9d48"
+        "RSBCBF0EG8",
+        "e740caae53c72e09463a1117854491d5"
       ),
     };
   },
