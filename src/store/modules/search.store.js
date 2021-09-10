@@ -1,7 +1,7 @@
 const SearchModule = {
   namespaced: true,
   state: {
-    query: "",
+    query: null,
     ProductDetails: null,
   },
   getters: {

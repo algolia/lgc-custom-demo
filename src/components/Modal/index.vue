@@ -6,7 +6,9 @@
           X
         </p>
         <ais-configure :hits-per-page.camel="7"/>
-        <!-- <Suggestion v-if="!getProductDetails" /> -->
+
+        <RecentSearches v-if="!getProductDetails" />
+
         <SearchPage v-if="!getProductDetails" :hits="hits" />
         <ProductDetails v-if="getProductDetails" />
       </div>
@@ -16,7 +18,9 @@
 
 <script>
 import SearchPage from "@/components/SearchPage";
-// import Suggestion from "@/components/Suggestion";
+
+import RecentSearches from "@/components/RecentSearches";
+
 import ProductDetails from "@/components/ProductDetails";
 
 import { mapActions, mapGetters } from "vuex";
@@ -24,7 +28,9 @@ export default {
   name: "Modal",
   components: {
     SearchPage,
-    // Suggestion,
+
+    RecentSearches,
+
     ProductDetails,
   },
   data() {
