@@ -18,9 +18,10 @@ export default {
   data() {
     return {
       arrayOfObjects: [
-        { name: "Tiffany" },
-        { name: "Ben" },
-        { name: "Neutral" },
+        { name: "Max Power" },
+        { name: "Chuck Norris" },
+        { name: "Donna Smith" },
+        { name: "Kyle Stuart" },
       ],
       object: {
         name: "Persona",
@@ -35,11 +36,14 @@ export default {
   methods: {
     methodToRunOnSelect(payload) {
       this.object = payload;
-      this.sendPersonnaSelected(payload.name)
+      this.sendPersonnaSelected(payload.name);
       this.selectedPersonna();
-      this.$emit("selectedPersonna", true)
+      this.$emit("selectedPersonna", true);
     },
-    ...mapActions('PersonnaModule', ['sendPersonnaSelected', 'selectedPersonna']),
+    ...mapActions("PersonnaModule", [
+      "sendPersonnaSelected",
+      "selectedPersonna",
+    ]),
   },
 };
 </script>
