@@ -1,44 +1,58 @@
 <template>
   <div>
-    <!-- <SearchBox :hits="hits"/> -->
-    <h3 class="federated-title">Products</h3>
-    <div class="sort-and-stat">
-      <ais-stats />
-    </div>
-    <ais-hits>
-      <div
-        class="hits-wrapper"
-        slot="item"
-        slot-scope="{ item }"
-        @click="selectedProduct(item)"
-      >
-        <div class="image-wrapper">
-          <img
-            :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
-            alt=""
-          />
+    <ais-state-results>
+      <template v-slot="{ results: { hits, query } }">
+        <!-- <SearchBox :hits="hits"/> -->
+        <h3 class="federated-title" v-if="hits.length > 0">Products</h3>
+        <div class="sort-and-stat" v-if="hits.length > 0">
+          <ais-stats />
         </div>
-        <div class="infos">
-          <ais-highlight attribute="name" :hit="item" />
+        <ais-hits v-if="hits.length > 0">
+          <div
+            class="hits-wrapper"
+            slot="item"
+            slot-scope="{ item }"
+            @click="selectedProduct(item)"
+          >
+            <div class="image-wrapper">
+              <img
+                :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+                alt=""
+              />
+            </div>
+            <div class="infos">
+              <ais-highlight attribute="name" :hit="item" />
+            </div>
+            <p class="prices">
+              To view pricing
+              <br />
+              <span>Login/Register</span>
+            </p>
+          </div>
+        </ais-hits>
+        <div v-else>
+          <p class="not-found">
+            Hmmmm, we didn't find anything for <span>'{{ query }}'</span>.<br />
+            Try a different earch term or check out our suggestions below
+          </p>
+          <CarouselNoResults :query="query"/>
         </div>
-        <p class="prices">
-          To view pricing
-          <br />
-          <span>Login/Register</span>
-        </p>
-      </div>
-    </ais-hits>
+        <ais-pagination v-if="hits.length > 0" />
+      </template>
+    </ais-state-results>
   </div>
 </template>
 <script>
 // import SearchBox from "@/components/SearchBox";
 import { mapActions } from "vuex";
+import CarouselNoResults from "@/components/CarouselNoResults";
 
 export default {
   name: "SearchPage",
   props: ["hits"],
   components: {
     // SearchBox,
+    CarouselNoResults,
   },
   methods: { ...mapActions("SearchModule", ["selectedProduct"]) },
 };
@@ -131,6 +145,17 @@ export default {
   span {
     color: $second-color;
     font-weight: 400;
+  }
+}
+
+/* Not Found */
+.not-found {
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  span {
+    font-style: italic;
+    color: $second-color;
   }
 }
 </style>
