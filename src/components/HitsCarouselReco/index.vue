@@ -17,7 +17,11 @@
         <div class="infos">
           <ais-highlight class="title" :hit="item" attribute="name" />
         </div>
-        <p>$ {{ item.price }}.00</p>
+        <p class="prices">
+          To view pricing
+          <br />
+          <span>Login/Register</span>
+        </p>
       </li>
     </ul>
   </ais-hits>
@@ -33,6 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
 .hits-list-modal {
   flex-wrap: nowrap;
   display: -webkit-box;
@@ -89,5 +94,11 @@ ul {
   list-style: none;
   font-family: "Oswald", sans-serif;
   color: #000;
+}
+.prices {
+  span {
+    color: $second-color;
+    font-weight: 400;
+  }
 }
 </style>
