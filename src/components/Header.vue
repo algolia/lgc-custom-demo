@@ -6,7 +6,7 @@
         <img src="https://www.lgcstandards.com/medias/sys_master/root/h6c/hfb/10397484711966/10397484711966.jpg" alt="logo" class="logo" @click="logoFunction()" />
         <ul>
           <li @click="catOneFunction(), deletePersonna()">
-            OUR ORGANIC PRODUCTS
+            ORGANIC PRODUCTS
           </li>
           <!-- <li @click="catTwoFunction()">
             CAT TWO
@@ -18,12 +18,12 @@
           <li>CAT 5</li>
           <li>CAT 6</li>
           <li class="promo">CAT 7</li> -->
-          <!-- <li>
+          <li>
             <SelectPersona
               @selectedPersonna="selectedPersonna"
               setSelectedOption="{setSelectedOption}"
             />
-          </li> -->
+          </li>
         </ul>
       </div>
       <!-- <div class="search-wrapper" @click="svgClick()">
@@ -57,10 +57,10 @@ import searchBox from "../components/SearchBox";
 import { mapActions } from "vuex";
 
 // Import the components
-// import SelectPersona from "./Persona";
+import SelectPersona from "./Persona";
 export default {
   components: {
-    // SelectPersona,
+    SelectPersona,
     searchBox,
   },
   data() {
@@ -111,14 +111,17 @@ export default {
     align-items: center;
 
     li:last-child {
-      width: 6rem;
+      width: 15rem;
+      margin: 0;
     }
 
     li {
-      margin: 0 0.5rem;
+      margin: 0 0 0 1rem;
       font-weight: 500;
       cursor: pointer;
       position: relative;
+      font-size: 15px;
+      width: 10rem;
 
       &::before {
         content: "";
@@ -150,7 +153,7 @@ export default {
   }
 
   .logo {
-    width: 18%;
+    width: 30%;
     cursor: pointer;
   }
 
