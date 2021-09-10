@@ -48,13 +48,13 @@
         </div>
         <div class="filters-content">
           <div class="title" @click="showMaterialMethod()">
-            <h3>FRAME MATERIAL</h3>
+            <h3>ANALYTE NAME</h3>
             <p>-</p>
           </div>
           <transition name="fade">
             <ais-refinement-list
               v-if="!showMaterial"
-              attribute="FRAMEMATERIAL"
+              attribute="analyteName"
               searchable
               show-more
             >
@@ -83,15 +83,15 @@
           </transition>
           <div class="line"></div>
         </div>
-        <!-- <div class="filters-content">
+        <div class="filters-content">
           <div class="title" @click="showGenderMethod()">
-            <h3>GENDER</h3>
+            <h3>CAS NUMBER</h3>
             <p>-</p>
           </div>
           <transition name="fade">
             <ais-refinement-list
               v-if="!showGender"
-              attribute="GENDER"
+              attribute="listCASNumber"
               searchable
               show-more
             >
@@ -119,7 +119,7 @@
             </ais-refinement-list>
           </transition>
           <div class="line"></div>
-        </div> -->
+        </div>
         <!-- <div class="filters-content">
           <div class="title" @click="showColorMethod()">
             <h3>COLORS</h3>

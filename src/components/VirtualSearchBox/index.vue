@@ -1,23 +1,14 @@
 <template>
   <div>
     <ais-search-box>
-      <div
-        class="searchBox-wrapper"
-        slot-scope="{ currentRefinement, isSearchStalled, refine }"
-      >
+      <div class="searchBox-wrapper" slot-scope="{ refine }">
+        {{refine(query)}}
         <input
           type="search"
           placeholder="Search..."
-          :value="currentRefinement"
-          @input="
-            refine($event.currentTarget.value),
-              modifQuery($event.currentTarget.value)
-          "
-          @click="svgClick()"
-          @keyup.enter="searchNewQuery()"
+          :value="query"
+          @change="refine(query)"
         />
-        <span :hidden="!isSearchStalled">Loading...</span>
-        <ais-voice-search :search-as-you-speak="false" />
       </div>
     </ais-search-box>
   </div>
@@ -27,12 +18,10 @@
 import { mapActions } from "vuex";
 export default {
   name: "SearchBox",
+  props: ["query"],
   methods: {
     ...mapActions("HeaderModule", ["svgClick", "searchNewQuery"]),
     ...mapActions("SearchModule", ["modifQuery"]),
-    sendQuery() {
-      console.log("ENTER");
-    },
   },
 };
 </script>

@@ -1,9 +1,6 @@
 <template>
   <div>
-    <ais-instant-search
-      :search-client="searchClient"
-      index-name="lgc-demo"
-    >
+    <ais-instant-search :search-client="searchClient" index-name="lgc-demo">
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />
       <CatOne v-if="getCatOne" />
@@ -57,7 +54,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
-body{
+body {
   background-color: $primary-color;
 }
 </style>
