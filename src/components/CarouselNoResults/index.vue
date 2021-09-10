@@ -1,11 +1,8 @@
 <template>
   <div class="carousel-container">
-    <ais-instant-search
-      :search-client="searchClient"
-      index-name="lgc-demo"
-    >
+    <ais-instant-search :search-client="searchClient" :index-name="appConfig.mainIndex">
       <ais-configure :hits-per-page.camel="7">
-        <VirtualSearchBox :query="newQuery" style="display: none"/>
+        <VirtualSearchBox :query="newQuery" style="display: none" />
         <HitsCarouselBought />
       </ais-configure>
     </ais-instant-search>
@@ -14,17 +11,16 @@
 
 <script>
 import HitsCarouselBought from "@/components/HitsCarouselBought";
-import VirtualSearchBox from "@/components/VirtualSearchBox"
+import VirtualSearchBox from "@/components/VirtualSearchBox";
 import algoliasearch from "algoliasearch/lite";
+import { appConfig } from "../../configuration";
 export default {
   props: ["query"],
   data() {
     return {
       newQuery: "",
-      searchClient: algoliasearch(
-        "RSBCBF0EG8",
-        "e740caae53c72e09463a1117854491d5"
-      ),
+      appConfig,
+      searchClient: algoliasearch(appConfig.appId, appConfig.apiKey),
     };
   },
   methods: {
@@ -35,7 +31,7 @@ export default {
   },
   components: {
     HitsCarouselBought,
-    VirtualSearchBox
+    VirtualSearchBox,
   },
   beforeMount() {
     this.queryMethod();

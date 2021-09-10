@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ais-instant-search :search-client="searchClient" index-name="lgc-demo">
+    <ais-instant-search :search-client="searchClient" :index-name="appConfig.mainIndex">
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />
       <CatOne v-if="getCatOne" />
@@ -19,6 +19,8 @@ import CatTwo from "@/components/CatTwo";
 import { mapGetters } from "vuex";
 import algoliasearch from "algoliasearch/lite";
 
+import { appConfig } from "./configuration";
+
 export default {
   components: {
     Header,
@@ -29,11 +31,9 @@ export default {
   },
   data() {
     return {
+      appConfig,
       showFederatedSearch: true,
-      searchClient: algoliasearch(
-        "RSBCBF0EG8",
-        "e740caae53c72e09463a1117854491d5"
-      ),
+      searchClient: algoliasearch(appConfig.appId, appConfig.apiKey),
     };
   },
   methods: {
@@ -48,6 +48,7 @@ export default {
       "getCatTwo",
       "getCatOne",
     ]),
+    ...mapGetters("ConfigModule", ["getId", "getApiKey"]),
   },
 };
 </script>

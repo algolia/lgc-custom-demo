@@ -3,10 +3,7 @@
     <h3>Recommandations</h3>
     <HitsCarouselReco />
     <h3>Bought together</h3>
-    <ais-instant-search
-      :search-client="searchClient"
-      index-name="lgc-demo"
-    >
+    <ais-instant-search :search-client="searchClient" :index-name="appConfig.mainIndex">
       <ais-configure :hits-per-page.camel="7">
         <HitsCarouselBought />
       </ais-configure>
@@ -18,13 +15,13 @@
 import HitsCarouselReco from "@/components/HitsCarouselReco";
 import HitsCarouselBought from "@/components/HitsCarouselBought";
 import algoliasearch from "algoliasearch/lite";
+
+import { appConfig } from "../../configuration";
 export default {
   data() {
     return {
-      searchClient: algoliasearch(
-        "RSBCBF0EG8",
-        "e740caae53c72e09463a1117854491d5"
-      ),
+      appConfig,
+      searchClient: algoliasearch(appConfig.appId, appConfig.apiKey),
     };
   },
   components: {
