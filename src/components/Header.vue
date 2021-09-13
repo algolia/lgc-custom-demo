@@ -5,8 +5,8 @@
       <div class="list-img-wrapper">
         <img src="https://www.lgcstandards.com/medias/sys_master/root/h6c/hfb/10397484711966/10397484711966.jpg" alt="logo" class="logo" @click="logoFunction()" />
         <ul>
-          <li @click="catOneFunction(), deletePersonna()">
-            ORGANIC PRODUCTS
+          <li @click="catTwoFunction(), deletePersonna()">
+            THREE FLAGSHIP BRANDS
           </li>
           <!-- <li @click="catTwoFunction()">
             CAT TWO
