@@ -1,12 +1,15 @@
 <template>
   <div class="search-page">
-    <Banner/>
+    <Banner />
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :userToken="userToken()" />
+          <ais-configure
+            :userToken="userToken()"
+            ruleContexts="flagship-brands"
+          />
           <ais-sort-by
             :items="[
               {
@@ -52,7 +55,7 @@
 
 <script>
 import Filters from "@/components/FiltersFacetDisplay";
-import Banner from "../Banner/index.vue"
+import Banner from "../Banner/index.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
@@ -63,7 +66,7 @@ export default {
   },
   components: {
     Filters,
-    Banner
+    Banner,
   },
   methods: {
     showFiltersMethod() {
