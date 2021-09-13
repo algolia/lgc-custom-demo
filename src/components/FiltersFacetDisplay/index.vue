@@ -103,47 +103,49 @@
             <p @click="showMaterialMethod()">-</p>
           </div>
           <transition name="fade">
-            <ais-refinement-list
-              v-if="!showMaterial"
-              attribute="analyteName"
-              searchable
-              show-more
-            >
-              <div
-                slot-scope="{
-                  items,
-                  isFromSearch,
-                  refine,
-                  createURL,
-                  searchForItems,
-                }"
+            <ais-experimental-dynamic-widgets>
+              <ais-refinement-list
+                v-if="!showMaterial"
+                attribute="analyteName"
+                searchable
+                show-more
               >
-                <input
-                  v-if="searchAnalyteFilter"
-                  placeholder="Search our Analyte"
-                  @input="searchForItems($event.currentTarget.value)"
-                />
-                <ul>
-                  <li v-if="isFromSearch && !items.length">No results.</li>
-                  <li
-                    v-for="item in items"
-                    :key="item.value"
-                    class="filter-list"
-                  >
-                    <a
-                      class="button-filter"
-                      :href="createURL(item)"
-                      @click.prevent="refine(item.value)"
-                      :style="{
-                        border: item.isRefined ? '1px solid #1f1f24' : '',
-                      }"
+                <div
+                  slot-scope="{
+                    items,
+                    isFromSearch,
+                    refine,
+                    createURL,
+                    searchForItems,
+                  }"
+                >
+                  <input
+                    v-if="searchAnalyteFilter"
+                    placeholder="Search our Analyte"
+                    @input="searchForItems($event.currentTarget.value)"
+                  />
+                  <ul>
+                    <li v-if="isFromSearch && !items.length">No results.</li>
+                    <li
+                      v-for="item in items"
+                      :key="item.value"
+                      class="filter-list"
                     >
-                      <ais-highlight attribute="item" :hit="item" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </ais-refinement-list>
+                      <a
+                        class="button-filter"
+                        :href="createURL(item)"
+                        @click.prevent="refine(item.value)"
+                        :style="{
+                          border: item.isRefined ? '1px solid #1f1f24' : '',
+                        }"
+                      >
+                        <ais-highlight attribute="item" :hit="item" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ais-refinement-list>
+            </ais-experimental-dynamic-widgets>
           </transition>
           <div class="line"></div>
         </div>
