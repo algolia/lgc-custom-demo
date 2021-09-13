@@ -1,21 +1,12 @@
 <template>
   <div class="search-page">
-    <div class="filterBtn" @click="showFiltersMethod()">
-      <p>Navigation & Filters</p>
-      <div>
-        <p v-if="!showFilters">-</p>
-        <p v-else>+</p>
-      </div>
-    </div>
+    <Banner/>
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure
-            filters="FRAMEMATERIAL:Metal"
-            :userToken="userToken()"
-          />
+          <ais-configure :userToken="userToken()" />
           <ais-sort-by
             :items="[
               {
@@ -33,16 +24,26 @@
             ]"
           />
         </div>
-        <ais-hits>
-          <div class="hits-wrapper" slot="item" slot-scope="{ item }">
-            <div class="image-wrapper">
-              <img :src="item.image_link" alt="" />
+        <transition name="fade">
+          <ais-hits>
+            <div
+              @click="selectedProduct(item), svgClick()"
+              class="hits-wrapper"
+              slot="item"
+              slot-scope="{ item }"
+            >
+              <div class="image-wrapper">
+                <img
+                  :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+                  alt=""
+                />
+              </div>
+              <div class="infos">
+                <ais-highlight attribute="name" :hit="item" />
+              </div>
             </div>
-            <div class="infos">
-              <ais-highlight attribute="title" :hit="item" />
-            </div>
-          </div>
-        </ais-hits>
+          </ais-hits>
+        </transition>
         <ais-pagination />
       </div>
     </div>
@@ -50,10 +51,11 @@
 </template>
 
 <script>
-import Filters from "@/components/Filters";
-import { mapGetters } from "vuex";
+import Filters from "@/components/FiltersFacetDisplay";
+import Banner from "../Banner/index.vue"
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "catTwo",
+  name: "catOne",
   data() {
     return {
       showFilter: true,
@@ -61,6 +63,7 @@ export default {
   },
   components: {
     Filters,
+    Banner
   },
   methods: {
     showFiltersMethod() {
@@ -77,6 +80,8 @@ export default {
         return "Neutral";
       }
     },
+    ...mapActions("SearchModule", ["selectedProduct"]),
+    ...mapActions("HeaderModule", ["svgClick"]),
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
@@ -114,6 +119,15 @@ export default {
     position: relative;
     text-transform: uppercase;
     justify-content: space-between;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 }
 </style>
