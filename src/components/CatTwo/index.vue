@@ -30,9 +30,9 @@
         <transition name="fade">
           <Hits />
         </transition>
-        <ais-pagination />
       </div>
     </div>
+        <ais-pagination />
   </div>
 </template>
 
