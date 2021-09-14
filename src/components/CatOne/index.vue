@@ -1,13 +1,13 @@
 <template>
   <div class="search-page">
-    <Banner/>
+    <Banner />
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :userToken="userToken()" />
-          <ais-sort-by
+     
+          <!-- <ais-sort-by
             :items="[
               {
                 value: 'rayban_merged',
@@ -22,8 +22,9 @@
                 label: 'Price Asc.',
               },
             ]"
-          />
+          /> -->
         </div>
+        <ais-configure :userToken="userToken()" :hits-per-page.camel="21" :distinct="true" :enable-personalization.camel="true" />
         <transition name="fade">
           <ais-hits>
             <div
@@ -52,7 +53,7 @@
 
 <script>
 import Filters from "@/components/Filters";
-import Banner from "../Banner/index.vue"
+import Banner from "../Banner/index.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
@@ -63,21 +64,24 @@ export default {
   },
   components: {
     Filters,
-    Banner
+    Banner,
   },
   methods: {
     showFiltersMethod() {
       this.showFilter = !this.showFilter;
     },
     userToken() {
-      if (this.getPersonnaSelected == "Ben") {
-        return "RB_Ben";
+      if (this.getPersonnaSelected == "Max Power") {
+        return "Max-Power";
       }
-      if (this.getPersonnaSelected == "Tiffany") {
-        return "RB_Tiffany";
+      if (this.getPersonnaSelected == "Chuck Norris") {
+        return "Chuck-Norris";
       }
-      if (this.getPersonnaSelected == "Neutral") {
-        return "Neutral";
+      if (this.getPersonnaSelected == "Donna Smith") {
+        return "Donna-Smith";
+      }
+      if (this.getPersonnaSelected == "Kyle Stuart") {
+        return "Kyle-Stuart";
       }
     },
     ...mapActions("SearchModule", ["selectedProduct"]),
@@ -85,6 +89,7 @@ export default {
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
+    
   },
 };
 </script>
