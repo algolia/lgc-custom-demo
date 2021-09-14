@@ -34,7 +34,7 @@
         <div v-else>
           <p class="not-found">
             Hmmmm, we didn't find anything for <span>'{{ query }}'</span>.<br />
-            Try a different earch term or check out our suggestions below
+            Try a different search term or check out our suggestions below
           </p>
           <CarouselNoResults :query="query"/>
         </div>
