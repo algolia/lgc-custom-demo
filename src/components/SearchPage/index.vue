@@ -7,7 +7,7 @@
         <div class="sort-and-stat" v-if="hits.length > 0">
           <ais-stats />
         </div>
-       
+
         <ais-hits v-if="hits.length > 0">
           <div
             class="hits-wrapper"
@@ -36,7 +36,7 @@
             Hmmmm, we didn't find anything for <span>'{{ query }}'</span>.<br />
             Try a different earch term or check out our suggestions below
           </p>
-          <CarouselNoResults :query="query"/>
+          <CarouselNoResults :query="query" />
         </div>
         <ais-pagination v-if="hits.length > 0" />
       </template>
@@ -115,7 +115,8 @@ export default {
 }
 
 .ais-Hits-item {
-  width: 95% !important;
+  width: 310px !important;
+  height: 250px;
   @include hit-list;
 }
 
@@ -144,14 +145,14 @@ export default {
 }
 
 .prices {
-  color: #53B8BB;
+  color: #53b8bb;
   span {
-    color: #53B8BB;
+    color: #53b8bb;
     font-weight: 400;
   }
 }
 
-.ais-Highlight{
+.ais-Highlight {
   color: $primary-color;
 }
 
