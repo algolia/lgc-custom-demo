@@ -26,7 +26,7 @@
                 </div>
               </div>
               <div class="btn-infos">
-                  <!-- <a class="accreditations">{{item.accreditations[0].name}}</a> -->
+                  <!-- <a class="accreditations">{{getAccred(item.accreditations)}}</a> -->
                   <a class="stock">Stock: {{item.stockQty}}</a>
               </div>
 
@@ -61,6 +61,9 @@ export default {
   methods: {
     ...mapActions("SearchModule", ["selectedProduct"]),
     ...mapActions("HeaderModule", ["svgClick"]),
+    // getAccred(hit){
+    //     hit.map(e => console.log(e))
+    // }
   },
   computed: {
   },
