@@ -3,9 +3,10 @@
     <Banner />
     <div class="hits-page">
       <Filters :showFilter="showFilter" />
-      <div class="hits-wrapper">
+        <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
+          </div>
      
           <!-- <ais-sort-by
             :items="[
@@ -23,37 +24,21 @@
               },
             ]"
           /> -->
-        </div>
-        <ais-configure :userToken="userToken()" :hits-per-page.camel="21" :distinct="true" :enable-personalization.camel="true" />
+        
+        <ais-configure :userToken="userToken()" :hits-per-page.camel="21"  :enable-personalization.camel="true" />
         <transition name="fade">
-          <ais-hits>
-            <div
-              @click="selectedProduct(item), svgClick()"
-              class="hits-wrapper"
-              slot="item"
-              slot-scope="{ item }"
-            >
-              <div class="image-wrapper">
-                <img
-                  :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
-                  alt=""
-                />
-              </div>
-              <div class="infos">
-                <ais-highlight attribute="name" :hit="item" />
-              </div>
-            </div>
-          </ais-hits>
+         <Hits />
         </transition>
-        <ais-pagination />
       </div>
     </div>
+       <ais-pagination />
   </div>
 </template>
 
 <script>
 import Filters from "@/components/Filters";
 import Banner from "../Banner/index.vue";
+import Hits from "../Hits/index.vue"
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
@@ -65,6 +50,7 @@ export default {
   components: {
     Filters,
     Banner,
+    Hits
   },
   methods: {
     showFiltersMethod() {
@@ -99,15 +85,19 @@ export default {
 @import "@/assets/scss/mixin.scss";
 
 .search-page {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   .hits-page {
     display: flex;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     .hits-wrapper {
+      position: relative;
+      margin-top: 0rem;
       .sort-and-stat {
-        padding: 0 5em;
+        position: absolute;
+        top: -1rem;
+        font-size: 0.8rem;
       }
     }
   }

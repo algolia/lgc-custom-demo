@@ -5,7 +5,7 @@
       <Filters :showFilter="showFilter" />
       <div class="hits-wrapper">
         <div class="sort-and-stat">
-          <ais-stats />
+          <!-- <ais-stats /> -->
           <ais-configure
             :userToken="userToken()"
             ruleContexts="flagship-brands"
