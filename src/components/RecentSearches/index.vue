@@ -54,7 +54,7 @@ export default {
 @import "@/assets/scss/variables/variables.scss";
 .suggestion {
   padding: 0 1.2em;
-  width: 70%;
+  width: 30%;
   .content {
     border: none;
     height: 20%;

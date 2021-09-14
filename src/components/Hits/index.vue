@@ -1,0 +1,217 @@
+<template>
+          <ais-hits>
+            <div
+              @click="selectedProduct(item), svgClick()"
+              class="hit-item-sr"
+              slot="item"
+              slot-scope="{ item }"
+            >
+            <ais-highlight attribute="name" :hit="item" class="title"/>
+            <div class="hits-wrapper">
+             
+              <div class="image-wrapper">
+                <img
+                  :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
+                  alt=""
+                />
+              </div>
+              <div class="infos">
+               <div>
+                <p>Product code : <span class="bold">{{item.code}}</span></p>
+                <p>Molecular formula: <span class="bold">{{item.listMolecularFormula[0]}}</span> </p>
+                </div>
+                <div>
+                <p>Cas number: <span class="bold">{{item.listCASNumber[0]}}</span></p>
+                <p>Molecular weight: <span class="bold">{{item.listMolecularWeight[0]}}</span></p>
+                </div>
+              </div>
+              <div class="btn-infos">
+                  <!-- <a class="accreditations">{{getAccred(item.accreditations)}}</a> -->
+                  <a class="stock">Stock: {{item.stockQty}}</a>
+              </div>
+
+           
+            </div>
+               <div class="cta">
+                  <h4>Product Details</h4>
+                  <a class="cart">
+                    <svg viewBox="0 0 96 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M94.8001 14.5999C94.2001 13.7999 93.3001 13.3999 92.3001 13.3999H24.1001L21.8001 2.8999C21.5001 1.3999 20.2001 0.399902 18.7001 0.399902H3.80011C2.00011 0.399902 0.600098 1.79985 0.600098 3.59985C0.600098 5.39985 2.00011 6.79987 3.80011 6.79987H16.2001L29.2001 66.1999C29.5001 67.6999 30.8001 68.6998 32.3001 68.6998H82.8001C84.6001 68.6998 86.0001 67.2999 86.0001 65.4999C86.0001 63.6999 84.6001 62.2999 82.8001 62.2999H34.9001L33.3001 54.9999H84.4001C85.9001 54.9999 87.2001 53.9999 87.5001 52.4999L95.5001 17.2999C95.6001 16.3999 95.4001 15.3999 94.8001 14.5999Z" fill="white"/>
+                        <path d="M76.2001 87.5999C80.3975 87.5999 83.8001 84.1972 83.8001 79.9999C83.8001 75.8025 80.3975 72.3999 76.2001 72.3999C72.0028 72.3999 68.6001 75.8025 68.6001 79.9999C68.6001 84.1972 72.0028 87.5999 76.2001 87.5999Z" fill="white"/>
+                        <path d="M39.1 87.5999C43.2973 87.5999 46.7 84.1972 46.7 79.9999C46.7 75.8025 43.2973 72.3999 39.1 72.3999C34.9026 72.3999 31.5 75.8025 31.5 79.9999C31.5 84.1972 34.9026 87.5999 39.1 87.5999Z" fill="white"/>
+                    </svg>
+                    <p>Add to cart</p></a>
+              </div>
+            </div>
+          </ais-hits>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+export default {
+  name: "Hits",
+  data() {
+    return {
+      showFilter: true,
+    };
+  },
+  components: {
+ 
+  },
+  methods: {
+    ...mapActions("SearchModule", ["selectedProduct"]),
+    ...mapActions("HeaderModule", ["svgClick"]),
+    // getAccred(hit){
+    //     hit.map(e => console.log(e))
+    // }
+  },
+  computed: {
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
+@import "@/assets/scss/mixin.scss";
+
+.search-page {
+  width: 100%;
+  margin: 0 auto;
+  .hits-page {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    .hit-item-sr{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .title{
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+    .hits-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .infos{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div{
+                margin: 0.5rem;
+            }
+            p{
+                font-weight: 300;
+                font-size: 0.8rem;
+                display: flex;
+                flex-direction: column;
+                span{
+                    font-weight: bold;
+                }
+            }
+
+          
+        }
+
+        .btn-infos{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+          .stock{
+                border: 2px solid black;
+                padding: 0.5rem;
+                text-decoration: none;
+                font-size: 0.8rem;
+                text-align: center;
+            }
+            .accreditations{
+                width: 100%;
+                border: 2px solid #4a90e2;
+                padding: 0.5rem;
+                text-decoration: none;
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+                 text-align: center;
+            }
+
+        .image-wrapper{
+            width: 20%;
+            img{
+                width: 100%;
+            }
+        }
+    
+    }
+  }
+
+  .cta{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top:1rem  ;
+      border-top: 1px solid rgb(216, 216, 216);
+
+      h4{
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #4a90e2;
+      }
+
+      .cart{
+          background-color: #4a90e2;
+          border-radius: 30px;
+          padding: 0.5rem 1rem;
+          color: white;
+          display: flex;
+          
+          p{
+              color: white;
+          }
+          svg{
+              width: 15px;
+              margin-right: 1rem;
+          }
+      }
+  }
+
+    .sort-and-stat {
+        padding: 0 5em;
+      }
+
+  .ais-Hits-item{
+      background-color: white;
+      padding: 1rem;
+  }
+  .search {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .filterBtn {
+    width: 10%;
+    margin: 0 0 0 5.4em;
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    justify-content: space-between;
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}
+</style>

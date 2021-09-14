@@ -8,6 +8,7 @@
         <ais-configure :hits-per-page.camel="7"/>
 
         <RecentSearches v-if="!getProductDetails" />
+       
 
         <SearchPage v-if="!getProductDetails" :hits="hits" />
         <ProductDetails v-if="getProductDetails" />
@@ -20,6 +21,7 @@
 import SearchPage from "@/components/SearchPage";
 
 import RecentSearches from "@/components/RecentSearches";
+// import Hits from '../Hits/index.vue'
 
 import ProductDetails from "@/components/ProductDetails";
 
@@ -28,7 +30,7 @@ export default {
   name: "Modal",
   components: {
     SearchPage,
-
+    // Hits,
     RecentSearches,
 
     ProductDetails,

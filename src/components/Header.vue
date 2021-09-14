@@ -90,13 +90,17 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
 
+
+header {
+  margin-bottom: 2rem;
+}
 .headerUp {
   width: 100%;
 }
 
 .header-wrapper {
-  width: 60%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 2rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
