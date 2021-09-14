@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     suggestionMethod(value) {
-      console.log("EMIT AU DESSUS", value);
+     
       this.hits = value;
     },
     ...mapActions("HeaderModule", ["closeModal"]),

@@ -10,7 +10,7 @@
             <div class="hits-wrapper">
              
               <div class="image-wrapper">
-                <img
+                <img v-if="item.brand.logo"
                   :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
                   alt=""
                 />

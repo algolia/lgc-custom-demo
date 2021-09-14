@@ -1,5 +1,5 @@
 <template>
-  <ais-query-rule-custom-data :transform-items="transformItems">
+  <ais-query-rule-custom-data >
     <template v-slot:item="{ item }">
       <div class="banner--wrapper">
         <h2>{{ item.title }}</h2>
@@ -17,17 +17,18 @@ export default {
   components: {},
   data() {
     return {
-      hits: "",
+     
     };
   },
   methods: {
-    transformItems(items) {
-      const match = items.find((data) => Boolean(data.redirect));
-      if (match && match.redirect) {
-        window.location.href = match.redirect;
-      }
-      return [];
-    },
+    // transformItems(items) {
+    //   console.log(items)
+    //   const match = items.find((data) => Boolean(data.redirect));
+    //   if (match && match.redirect) {
+    //     window.location.href = match.redirect;
+    //   }
+    //   return [];
+    // },
   },
 };
 </script>
@@ -49,6 +50,7 @@ export default {
     font-size: 3rem;
   }
   img {
+    width: 100%;
     object-fit: cover;
     object-position: -0rem -26rem;
   }
