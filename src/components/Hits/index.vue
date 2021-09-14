@@ -26,7 +26,7 @@
                 </div>
               </div>
               <div class="btn-infos">
-                  <a class="accreditations">{{item.accreditations[0].name}}</a>
+                  <!-- <a class="accreditations">{{item.accreditations[0].name}}</a> -->
                   <a class="stock">Stock: {{item.stockQty}}</a>
               </div>
 
