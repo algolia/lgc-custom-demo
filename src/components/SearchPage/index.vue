@@ -177,8 +177,8 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 2rem;
-      padding-top:1rem  ;
+      margin-top: 2rem !important;
+      padding-top:1rem !important;
       border-top: 1px solid rgb(216, 216, 216);
 
       h4{
