@@ -6,8 +6,8 @@
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :userToken="userToken()" />
-          <ais-sort-by
+     
+          <!-- <ais-sort-by
             :items="[
               {
                 value: 'rayban_merged',
@@ -22,8 +22,9 @@
                 label: 'Price Asc.',
               },
             ]"
-          />
+          /> -->
         </div>
+        <ais-configure :userToken="userToken()" :hits-per-page.camel="21" :distinct="true" :enable-personalization.camel="true" />
         <transition name="fade">
           <ais-hits>
             <div
@@ -88,6 +89,7 @@ export default {
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
+    
   },
 };
 </script>

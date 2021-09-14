@@ -7,6 +7,7 @@
         <div class="sort-and-stat" v-if="hits.length > 0">
           <ais-stats />
         </div>
+       
         <ais-hits v-if="hits.length > 0">
           <div
             class="hits-wrapper"
