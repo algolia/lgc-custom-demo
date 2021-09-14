@@ -88,7 +88,7 @@ export default {
   width: 90%;
   margin: -1rem auto 2rem auto;
   .ais-Stats-text {
-    color: $sixth-color;
+    color: $primary-color;
   }
 }
 .ais-SortBy-select {
@@ -140,13 +140,19 @@ export default {
 .federated-title {
   margin-left: 3rem;
   margin-bottom: 1rem;
+  color: $primary-color;
 }
 
 .prices {
+  color: #53B8BB;
   span {
-    color: $second-color;
+    color: #53B8BB;
     font-weight: 400;
   }
+}
+
+.ais-Highlight{
+  color: $primary-color;
 }
 
 /* Not Found */

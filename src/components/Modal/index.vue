@@ -5,7 +5,7 @@
         <p v-if="!getProductDetails" class="close-modal" @click="closeModal">
           X
         </p>
-        <ais-configure :hits-per-page.camel="7"/>
+        <ais-configure :hits-per-page.camel="9"/>
 
         <RecentSearches v-if="!getProductDetails" />
 
@@ -63,7 +63,7 @@ export default {
   .federated-search {
     width: 90vw;
     height: 80vh;
-    background: rgba(255, 255, 255, 0.98);
+    background: #01788A;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(14px);
@@ -79,16 +79,17 @@ export default {
   }
 }
 .ais-Pagination-list {
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
   li {
     margin: 0 0.2em;
-    background-color: $seventh-color;
+    background-color: #1c91a0;
     border-radius: 8px;
     padding: 8px;
     a {
       text-decoration: none;
-      color: white;
+      color: #F3F2C9;
     }
   }
 }
