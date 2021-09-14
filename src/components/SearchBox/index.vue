@@ -43,7 +43,7 @@ export default {
     ...mapActions("HeaderModule", ["svgClick", "searchNewQuery"]),
     ...mapActions("SearchModule", ["modifQuery"]),
     sendQuery() {
-      console.log("ENTER");
+ 
     },
   },
   computed: {
