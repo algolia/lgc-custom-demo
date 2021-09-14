@@ -10,7 +10,7 @@
             :userToken="userToken()"
             ruleContexts="flagship-brands"
           />
-          <ais-sort-by
+          <!-- <ais-sort-by
             :items="[
               {
                 value: 'rayban_merged',
@@ -25,27 +25,10 @@
                 label: 'Price Asc.',
               },
             ]"
-          />
+          /> -->
         </div>
         <transition name="fade">
-          <ais-hits>
-            <div
-              @click="selectedProduct(item), svgClick()"
-              class="hits-wrapper"
-              slot="item"
-              slot-scope="{ item }"
-            >
-              <div class="image-wrapper">
-                <img
-                  :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
-                  alt=""
-                />
-              </div>
-              <div class="infos">
-                <ais-highlight attribute="name" :hit="item" />
-              </div>
-            </div>
-          </ais-hits>
+          <Hits />
         </transition>
         <ais-pagination />
       </div>
@@ -54,6 +37,7 @@
 </template>
 
 <script>
+import Hits from "../Hits/index.vue";
 import Filters from "@/components/FiltersFacetDisplay";
 import Banner from "../Banner/index.vue";
 import { mapGetters, mapActions } from "vuex";
@@ -67,6 +51,7 @@ export default {
   components: {
     Filters,
     Banner,
+    Hits,
   },
   methods: {
     showFiltersMethod() {
@@ -97,15 +82,19 @@ export default {
 @import "@/assets/scss/mixin.scss";
 
 .search-page {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   .hits-page {
     display: flex;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     .hits-wrapper {
+      position: relative;
+      margin-top: 0rem;
       .sort-and-stat {
-        padding: 0 5em;
+        position: absolute;
+        top: -1rem;
+        font-size: 0.8rem;
       }
     }
   }
