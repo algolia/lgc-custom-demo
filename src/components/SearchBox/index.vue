@@ -26,7 +26,6 @@
             refine($event.currentTarget.value),
               modifQuery($event.currentTarget.value)
           "
-          @keyup.enter="searchNewQuery()"
         />
         <span :hidden="!isSearchStalled">Loading...</span>
         <ais-voice-search :search-as-you-speak="false" />
