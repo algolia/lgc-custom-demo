@@ -1,48 +1,73 @@
 <template>
   <div>
-    <p class="close-modal" @click="closeModal">X</p>
+    <p class="close-modal" @click="closeMethod()">X</p>
     <div class="modal-detail">
-          <h2>{{ getProductDetails.name }}</h2>
+      <h2>{{ getProductDetails.name }}</h2>
       <div class="product-side">
         <div class="modal-infos">
           <p>{{ getProductDetails.description }}</p>
-           <div class="infos">
-               <div>
-                <p>Product code : <span class="bold">{{getProductDetails.code}}</span></p>
-                <p>Molecular formula: <span class="bold">{{getProductDetails.listMolecularFormula[0]}}</span> </p>
-                <p>Cas number: <span class="bold">{{getProductDetails.listCASNumber[0]}}</span></p>
-                </div>
-                <div>
-                <p>Molecular weight: <span class="bold">{{getProductDetails.listMolecularWeight[0]}}</span></p>
-                <p>Matrix: <span class="bold">{{getProductDetails.variantMatrix}}</span></p>
-                <p>ProductType: <span class="bold">{{getProductDetails.productType}}</span></p>
-                </div>
+          <div class="infos">
+            <div>
+              <p>
+                Product code :
+                <span class="bold">{{ getProductDetails.code }}</span>
+              </p>
+              <p>
+                Molecular formula:
+                <span class="bold">{{
+                  getProductDetails.listMolecularFormula[0]
+                }}</span>
+              </p>
+              <p>
+                Cas number:
+                <span class="bold">{{
+                  getProductDetails.listCASNumber[0]
+                }}</span>
+              </p>
             </div>
-       
+            <div>
+              <p>
+                Molecular weight:
+                <span class="bold">{{
+                  getProductDetails.listMolecularWeight[0]
+                }}</span>
+              </p>
+              <p>
+                Matrix:
+                <span class="bold">{{ getProductDetails.variantMatrix }}</span>
+              </p>
+              <p>
+                ProductType:
+                <span class="bold">{{ getProductDetails.productType }}</span>
+              </p>
+            </div>
+          </div>
         </div>
         <div class="modal-images">
           <img
-            :src="'https://www.lgcstandards.com/' + getProductDetails.brand.logo.url"
+            :src="
+              'https://www.lgcstandards.com/' + getProductDetails.brand.logo.url
+            "
             alt=""
           />
         </div>
-    </div>
-    <div class="stock-infos">
-      <p class="pack-size">Pack size : </p>
-      <div class="details">
-        <a class="stock">Stock: {{getProductDetails.stockQty}}</a>
+      </div>
+      <div class="stock-infos">
+        <p class="pack-size">Pack size :</p>
+        <div class="details">
+          <a class="stock">Stock: {{ getProductDetails.stockQty }}</a>
+          <div>
+            <p>Estimated dispatch</p>
+            <p>{{ getProductDetails.stockmessage }}</p>
+          </div>
+        </div>
         <div>
-        <p>Estimated dispatch</p>
-        <p>{{getProductDetails.stockmessage}}</p>
+          <img :src="addToCart" alt="" />
         </div>
       </div>
-      <div>
-        <img :src="addToCart" alt="">
-      </div>
-    </div>
     </div>
     <div class="modal-image">
-      <img :src="pdp" alt="">
+      <img :src="pdp" alt="" />
     </div>
     <!-- <CarouselProducts /> -->
   </div>
@@ -62,14 +87,19 @@ export default {
   data() {
     return {
       pdp,
-      addToCart
+      addToCart,
     };
   },
   computed: {
     ...mapGetters("SearchModule", ["getProductDetails"]),
   },
   methods: {
-    ...mapActions("SearchModule", ["closeModal"]),
+    ...mapActions("SearchModule", ["closeModalProduct"]),
+    ...mapActions("HeaderModule", ["closeModal"]),
+    closeMethod() {
+      this.closeModalProduct();
+      this.closeModal();
+    },
   },
 };
 </script>
@@ -88,33 +118,34 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .modal-infos{
+    .modal-infos {
       width: 80%;
     }
 
-    .infos{
+    .infos {
       display: flex;
       justify-content: space-evenly;
       width: 90%;
       background-color: white;
       border-radius: 10px;
-      div{
+      div {
         margin: 1rem;
 
-        p{
+        p {
           margin-top: 1rem;
           font-weight: 300;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          
         }
 
-        .bold{font-weight: 500;}
+        .bold {
+          font-weight: 500;
+        }
       }
     }
 
-    .modal-images{
+    .modal-images {
       background-color: white;
       border-radius: 10px;
       height: 100%;
@@ -123,12 +154,13 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      img{width: 70%;}
+      img {
+        width: 70%;
+      }
     }
   }
-  
 
-  .stock-infos{
+  .stock-infos {
     background-color: white;
     border-radius: 10px;
     padding: 1rem;
@@ -136,24 +168,21 @@ export default {
     justify-content: space-evenly;
     align-items: center;
 
-    .pack-size{
+    .pack-size {
       width: 20%;
     }
-    .details{
+    .details {
       width: 40%;
-      div{
-
+      div {
         margin-top: 1rem;
       }
-      }
-    .stock{
+    }
+    .stock {
       font-size: 1.2rem;
       font-weight: bold;
       font-family: $main-font;
       margin-bottom: 2rem;
     }
-
-
   }
 
   .fake-filters {
@@ -200,16 +229,15 @@ export default {
   }
 }
 
+.modal-image {
+  display: flex;
+  align-items: center;
+  width: 100%;
 
-    .modal-image {
-      display: flex;
-      align-items: center;
-      width: 100%;
-     
-      img {
-        width: 100%;
-      }
-    }
+  img {
+    width: 100%;
+  }
+}
 .close-modal {
   position: absolute;
   right: 2rem;

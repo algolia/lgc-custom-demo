@@ -19,8 +19,8 @@ const SearchModule = {
     selectedProduct({ commit }, value) {
       commit("SELECTED_PRODUCT", value);
     },
-    closeModal({commit}){
-      commit("SELECTED_PRODUCT", null);
+    closeModalProduct({commit}){
+      commit("CLOSE_MODAL_PRODUCT", null);
     },
     deleteProducts({commit}){
       commit("DELETE_PRODUCTS")
@@ -35,6 +35,9 @@ const SearchModule = {
     },
     DELETE_PRODUCTS(state){
       state.ProductDetails = null
+    },
+    CLOSE_MODAL_PRODUCT(state, value){
+      state.ProductDetails = value;
     }
   },
 };
