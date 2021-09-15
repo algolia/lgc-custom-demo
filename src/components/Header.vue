@@ -125,7 +125,7 @@ header {
       cursor: pointer;
       position: relative;
       font-size: 15px;
-      width: 10rem;
+      width: 17rem;
 
       &::before {
         content: "";
