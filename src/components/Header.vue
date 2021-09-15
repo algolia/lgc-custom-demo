@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img :src="headerUp" alt="" class="headerUp" />
+    <!-- <img :src="headerUp" alt="" class="headerUp" /> -->
     <div class="header-wrapper">
       <div class="list-img-wrapper">
         <img src="https://www.lgcstandards.com/medias/sys_master/root/h6c/hfb/10397484711966/10397484711966.jpg" alt="logo" class="logo" @click="logoFunction()" />
