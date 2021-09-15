@@ -22,8 +22,8 @@
           />
         </div>
         <div class="infos">
-          <div>
-            <p>
+          <div class="infos-product">
+            <p class="product-code">
               Product code : <span class="bold">{{ item.code }}</span>
             </p>
             <p>
@@ -31,27 +31,24 @@
               <span class="bold">{{ item.listMolecularFormula[0] }}</span>
             </p>
           </div>
-          <div>
-            <p>
-              Cas number:
-              <span class="bold" style="display-flex">
-                <ais-highlight :hit="item" :attribute="'listCASNumber.' + 0" />
-              </span>
-            </p>
+          <div class="infos-cas">
+            <div class="cas-number">
+              <p>
+                Cas number:
+                <span class="bold" style="display-flex">
+                  <ais-highlight :hit="item" :attribute="'listCASNumber.' + 0" />
+                </span>
+              </p>
+               <div class="more-wrapper" v-if="item.listCASNumber.length - 1 > 0">
+                <p class="more">+ {{ item.listCASNumber.length - 1 }} more</p>
+            </div>
+            </div>
             <p>
               Molecular weight:
               <span class="bold">{{ item.listMolecularWeight[0] }}</span>
             </p>
           </div>
-          <div
-            v-if="item.listCASNumber.length - 1 > 0"
-            style="margin: 0px !important;
-    position: absolute;
-    top: 9px;
-    right: 145px;"
-          >
-            <p class="more">+ {{ item.listCASNumber.length - 1 }} more</p>
-          </div>
+         
         </div>
         <div class="btn-infos">
           <!-- <a class="accreditations">{{getAccred(item.accreditations)}}</a> -->
@@ -300,7 +297,27 @@ export default {
     }
   }
 }
+.more-wrapper{
+  margin: 0 !important;
+  
 .more {
-  font-size: 0.8rem;
+  font-size: $xsmall-font-size !important;
 }
+}
+
+.infos-product .infos-cas{
+  p{
+    margin: 0.5rem;
+  }
+}
+
+.product-code{
+  margin-bottom: 1rem;
+}
+
+.cas-number{
+  margin: 0 !important;
+  margin-bottom: 0.3rem !important;
+}
+
 </style>
