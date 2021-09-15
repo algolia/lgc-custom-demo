@@ -88,6 +88,9 @@ export default {
     display: flex;
     width: 95%;
     margin: 0 auto;
+    .filters{
+      width: 100%;
+    }
     .hits-wrapper {
       position: relative;
       margin-top: 0rem;
