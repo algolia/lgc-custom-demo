@@ -7,7 +7,7 @@
         <div class="sort-and-stat" v-if="hits.length > 0">
           <ais-stats />
         </div>
-       <Hits v-if="hits.length > 0" />
+        <Hits v-if="hits.length > 0" />
         <!-- <ais-hits v-if="hits.length > 0">
           <div
             class="hits-wrapper"
@@ -36,7 +36,7 @@
             Hmmmm, we didn't find anything for <span>'{{ query }}'</span>.<br />
             Try a different search term or check out our suggestions below
           </p>
-          <CarouselNoResults :query="query"/>
+          <CarouselNoResults :query="query" />
         </div>
         <ais-pagination v-if="hits.length > 0" />
       </template>
@@ -47,7 +47,7 @@
 // import SearchBox from "@/components/SearchBox";
 import { mapActions } from "vuex";
 import CarouselNoResults from "@/components/CarouselNoResults";
-import Hits from "../Hits/index.vue"
+import Hits from "../Hits/index.vue";
 
 export default {
   name: "SearchPage",
@@ -101,108 +101,102 @@ export default {
   }
 }
 
+.hit-item-sr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.hits-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
- 
-    .hit-item-sr{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+  .infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      margin: 0.5rem;
     }
-    .title{
-        text-align: center;
-        width: 100%;
-        font-weight: bold;
-        margin: 1rem 0;
-    }
-    .hits-wrapper {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-
-        .infos{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            div{
-                margin: 0.5rem;
-            }
-            p{
-                font-weight: 300;
-                font-size: 0.8rem;
-                display: flex;
-                flex-direction: column;
-                span{
-                    font-weight: bold;
-                }
-            }
-
-          
-        }
-
-        .btn-infos{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-          .stock{
-                border: 2px solid black;
-                padding: 0.5rem;
-                text-decoration: none;
-                font-size: 0.8rem;
-                text-align: center;
-            }
-            .accreditations{
-                width: 100%;
-                border: 2px solid #4a90e2;
-                padding: 0.5rem;
-                text-decoration: none;
-                font-size: 0.8rem;
-                margin-bottom: 0.5rem;
-                 text-align: center;
-            }
-
-        .image-wrapper{
-            width: 20%;
-            img{
-                width: 100%;
-            }
-        }
-    
-    }
-  
-
-  .cta{
+    p {
+      font-weight: 300;
+      font-size: 0.8rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2rem !important;
-      padding-top:1rem !important;
-      border-top: 1px solid rgb(216, 216, 216);
-
-      h4{
-          font-size: 1.2rem;
-          font-weight: bold;
-          color: #4a90e2;
+      flex-direction: column;
+      span {
+        font-weight: bold;
       }
-
-      .cart{
-          background-color: #4a90e2;
-          border-radius: 30px;
-          padding: 0.5rem 1rem;
-          color: white;
-          display: flex;
-          
-          p{
-              color: white;
-          }
-          svg{
-              width: 15px;
-              margin-right: 1rem;
-          }
-      }
+    }
   }
+
+  .btn-infos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .stock {
+    border: 2px solid black;
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .accreditations {
+    width: 100%;
+    border: 2px solid #4a90e2;
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .image-wrapper {
+    width: 20%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid rgb(216, 216, 216);
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a90e2;
+  }
+
+  .cart {
+    background-color: #4a90e2;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    color: white;
+    display: flex;
+
+    p {
+      color: white;
+    }
+    svg {
+      width: 15px;
+      margin-right: 1rem;
+    }
+  }
+}
 
 //SEARCHRESULT
 .ais-Hits {
@@ -221,9 +215,10 @@ export default {
 
 .ais-Hits-item {
   width: 95% !important;
+  height: 95%;
   background-color: white;
   padding: 1rem;
-  margin: 1rem
+  margin: 1rem;
   // @include hit-list;
 }
 
