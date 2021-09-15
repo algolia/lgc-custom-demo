@@ -14,6 +14,12 @@
             :src="'https://www.lgcstandards.com/' + item.brand.logo.url"
             alt=""
           />
+          <img
+            style="width: 55%"
+            v-else
+            src="https://images.unsplash.com/photo-1531956656798-56686eeef3d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80"
+            alt=""
+          />
         </div>
         <div class="infos">
           <div>
@@ -115,7 +121,6 @@ export default {
     //     hit.map(e => console.log(e))
     // }
   },
-  updated: {},
 };
 </script>
 
