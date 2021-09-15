@@ -4,8 +4,6 @@
       <div class="filterBtn" @click="showFiltersMethod()">
         <p>Navigation & Filters</p>
         <div>
-          <p v-if="!showFilters">-</p>
-          <p v-else>+</p>
         </div>
       </div>
       <div>
@@ -31,7 +29,7 @@
                 />
               </svg>
             </div>
-            <p @click="showShapeMethod()">-</p>
+            <!-- <p @click="showShapeMethod()">-</p> -->
           </div>
           <transition name="fade">
             <ais-refinement-list
@@ -101,7 +99,7 @@
                 />
               </svg>
             </div>
-            <p @click="showMaterialMethod()">-</p>
+            <!-- <p @click="showMaterialMethod()">-</p> -->
           </div>
           <transition name="fade">
             <ais-refinement-list
@@ -170,7 +168,7 @@
                 />
               </svg>
             </div>
-            <p @click="showGenderMethod()">-</p>
+            <!-- <p @click="showGenderMethod()">-</p> -->
           </div>
           <transition name="fade">
             <ais-refinement-list
