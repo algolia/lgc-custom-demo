@@ -107,7 +107,7 @@ export default {
           this.percentage = Math.round(calcul);
         } else {
           console.log("JE SUIS DANS LE ELSE");
-          this.percentage = null;
+          this.percentage = 0;
         }
       });
     },
