@@ -205,7 +205,7 @@ export default {
 }
 .ais-Hits-list {
   // width: 80% !important;
-  margin: 0rem 1rem;
+  margin: 5rem 1rem !important;
   @include hits-list;
 
   /* .ais-Hits-list {
