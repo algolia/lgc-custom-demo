@@ -125,6 +125,9 @@ export default {
     display: flex;
     width: 95%;
     margin: 0 auto;
+    .ais-StateResults{
+      width: 100%;
+    }
     .hits-wrapper {
       position: relative;
       margin-top: 0rem;
