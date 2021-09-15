@@ -14,7 +14,7 @@
           />
         </div>
         <div class="infos">
-          <p class="title" :hit="item" attribute="name" />
+          <ais-highlight class="title" :hit="item" attribute="name" />
         </div>
         <p class="prices">
           To view pricing
