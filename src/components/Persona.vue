@@ -52,6 +52,7 @@ export default {
 @import "@/assets/scss/variables/variables.scss";
 .my-dropdown-toggle {
   border-radius: 5px;
+  margin-top: 0.5rem;
 
   ::v-deep .dropdown-toggle {
     color: $main-color;
