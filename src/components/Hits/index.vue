@@ -171,7 +171,7 @@ export default {
         }
         p {
           font-weight: 300;
-          font-size: 0.8rem;
+          font-size: $small-font-size;
           display: flex;
           flex-direction: column;
           span {
@@ -190,7 +190,7 @@ export default {
         border: 2px solid black;
         padding: 0.5rem;
         text-decoration: none;
-        font-size: 0.8rem;
+        font-size: $small-font-size;
         text-align: center;
       }
       .accreditations {
@@ -198,7 +198,7 @@ export default {
         border: 2px solid #4a90e2;
         padding: 0.5rem;
         text-decoration: none;
-        font-size: 0.8rem;
+        font-size: $small-font-size;
         margin-bottom: 0.5rem;
         text-align: center;
       }
@@ -221,7 +221,7 @@ export default {
     border-top: 1px solid rgb(216, 216, 216);
 
     h4 {
-      font-size: 1.2rem;
+      font-size: $bigger-font-size;
       font-weight: bold;
       color: #4a90e2;
     }
@@ -292,7 +292,7 @@ export default {
     margin: 0 auto;
     li {
       margin-right: 0.3rem;
-      font-size: 0.6rem;
+      font-size: $xsmall-font-size;
       font-weight: 300;
     }
   }

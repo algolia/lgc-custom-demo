@@ -136,8 +136,9 @@ export default {
       width: 80%;
       .sort-and-stat {
         position: absolute;
-        top: -1rem;
-        font-size: 0.8rem;
+        top: 4rem;
+        left: 2rem;
+        font-size: $small-font-size;
       }
     }
   }

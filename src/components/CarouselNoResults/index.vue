@@ -45,9 +45,9 @@ export default {
   width: 90%;
   margin: 5rem auto;
   h3 {
-    font-family: "Oswald", sans-serif;
+    font-family: $main-font;
     color: $second-color;
-    font-size: 2rem;
+    font-size: $bigger-font-size;
   }
 }
 </style>

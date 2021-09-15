@@ -74,6 +74,9 @@ export default {
     padding: 2rem;
     margin: 3rem auto 0 auto;
     overflow-x: hidden;
+    .ais-Stats{
+      font-size: $xsmall-font-size;
+    }
     .modal-content {
       display: flex;
       justify-content: center;

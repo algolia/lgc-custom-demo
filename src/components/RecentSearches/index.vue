@@ -1,7 +1,7 @@
 <template>
   <div class="suggestion">
     <div v-if="recentSearches[0]" class="title">
-      <h1>Recent Searches</h1>
+      <h3>Recent Searches</h3>
     </div>
     <div class="content">
       <ul v-for="item in recentSearches" :key="item" class="recentSearch--wrapper">
@@ -55,6 +55,9 @@ export default {
 .suggestion {
   padding: 0 1.2em;
   width: 30%;
+   h3{
+      text-align: left;
+    }
   .content {
     border: none;
     height: 20%;
@@ -68,12 +71,14 @@ export default {
 }
   
   .recentSearch--wrapper{
+   
     li{
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
       p{
+        font-size: $small-font-size;
         text-transform: capitalize;
       }
 

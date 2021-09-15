@@ -373,6 +373,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
 .filters {
   /* width: 30%; */
   will-change: width;
@@ -391,19 +392,19 @@ export default {
     }
 
     p {
-      font-size: 0.8rem;
+      font-size: $small-font-size;
     }
   }
   .filters-content {
     .line {
-      border-bottom: 1px solid #e2e2e5;
+      border-bottom: 1px solid $seventh-color;
       width: 70%;
       margin: 1em auto 1em auto;
     }
     .filter-list {
       width: 100%;
       .button-filter {
-        border: 1px solid #e2e2e5;
+        border: 1px solid $seventh-color;
         text-decoration: none;
         color: #1f1f24;
         width: 100%;
@@ -411,7 +412,7 @@ export default {
         display: flex;
         margin: 0.5rem 0;
         padding: 0.8em;
-        font-size: 0.8rem;
+        font-size: $small-font-size;
         background-color: white;
         transition: all 0.2s ease-in-out;
       }

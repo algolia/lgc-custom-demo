@@ -58,17 +58,17 @@ export default {
     }
     .infos {
       .title {
-        font-size: 0.9rem;
+        font-size: $main-font;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        font-family: "Oswald", sans-serif;
+        font-family: $main-font;
         color: #000;
       }
     }
     p {
-      font-size: 1rem;
-      font-weight: 200;
+      font-size: $base-font-size;
+      font-weight: 300;
     }
   }
 }
@@ -92,13 +92,13 @@ export default {
 
 ul {
   list-style: none;
-  font-family: "Oswald", sans-serif;
+  font-family: $main-font;
   color: #000;
 }
 .prices {
   span {
     color: $second-color;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 </style>
