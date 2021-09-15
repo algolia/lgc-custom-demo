@@ -2,12 +2,14 @@
   <div class="search-page">
     <Banner />
     <div class="hits-page">
-      <ais-state-results>
-        <template slot-scope="{ hits }">
-          <Filters :showFilter="showFilter" v-if="hits.length" />
-          <div v-else></div>
-        </template>
-      </ais-state-results>
+      <div class="filters--catOne">
+        <ais-state-results>
+          <template slot-scope="{ hits }">
+            <Filters :showFilter="showFilter" v-if="hits.length" />
+            <div v-else></div>
+          </template>
+        </ais-state-results>
+      </div>
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-state-results>
@@ -131,12 +133,17 @@ export default {
     .hits-wrapper {
       position: relative;
       margin-top: 0rem;
+      width: 80%;
       .sort-and-stat {
         position: absolute;
         top: -1rem;
         font-size: 0.8rem;
       }
     }
+  }
+
+  .filters--catOne{
+    width: 20%;
   }
   .search {
     width: 80%;
