@@ -1,7 +1,7 @@
 <template>
   <ais-hits>
     <div
-      @click="selectedProduct(item)"
+      @click="selectedProductMethod(item)"
       class="hit-item-sr"
       slot="item"
       slot-scope="{ item }"
@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Hits",
   data() {
@@ -126,10 +126,19 @@ export default {
         }
       });
     },
+    selectedProductMethod(item){
+      this.selectedProduct(item)
+      if(this.getCatOne){
+        this.svgClick()
+      }
+    }
     // getAccred(hit){
     //     hit.map(e => console.log(e))
     // }
   },
+  computed:{
+    ...mapGetters("HeaderModule",["getCatOne"])
+  }
 };
 </script>
 
