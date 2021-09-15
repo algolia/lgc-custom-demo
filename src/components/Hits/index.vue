@@ -46,6 +46,17 @@
           <a class="stock">Stock: {{ item.stockQty }}</a>
         </div>
       </div>
+      <div class="analyte-wrapper">
+        <p class="title-analyte">AnalyteName:</p>
+        <!-- {{ percentageMethod(item, item.analyteName) }}
+        <p v-if="percentage">Matched analyte:{{ percentage }}%</p> -->
+        <ul class="analyte-names">
+          <li v-for="(tag, index) in item.analyteName" :key="tag">
+            <ais-highlight :hit="item" :attribute="'analyteName.' + index" />
+            <span v-if="index < item.analyteName.length - 1">, </span>
+          </li>
+        </ul>
+      </div>
       <div class="cta">
         <h4>Product Details</h4>
         <a class="cart">
@@ -81,17 +92,35 @@ export default {
   data() {
     return {
       showFilter: true,
+      percentage: null,
     };
   },
   components: {},
   methods: {
     ...mapActions("SearchModule", ["selectedProduct"]),
     ...mapActions("HeaderModule", ["svgClick"]),
+    percentageMethod: function(item, total) {
+      let num = 0;
+      item._highlightResult.analyteName.map((element) => {
+        console.log("element.matchedWords.length", element.matchedWords.length);
+        if (element.matchedWords.length > 0) {
+          console.log("JE SUIS DANS LE IF");
+          let percentage = num++;
+          // console.log("PERCENTAGE", percentage);
+          // console.log("TOTAL", total.length);
+          let calcul = (percentage / total.length) * 100;
+          // console.log("RETURN", calcul);
+          this.percentage = Math.round(calcul);
+        } else {
+          console.log("JE SUIS DANS LE ELSE");
+          this.percentage = 0;
+        }
+      });
+    },
     // getAccred(hit){
     //     hit.map(e => console.log(e))
     // }
   },
-  computed: {},
 };
 </script>
 
@@ -234,6 +263,28 @@ export default {
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
+  }
+}
+
+.analyte-wrapper {
+  width: 80%;
+  margin: 1rem auto 0 auto;
+  .title-analyte {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .analyte-names {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    li {
+      margin-right: 0.3rem;
+      font-size: 0.6rem;
+      font-weight: 300;
+    }
   }
 }
 </style>
