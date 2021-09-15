@@ -32,13 +32,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
 .carousel-container {
   width: 90%;
   margin: 5rem auto;
   h3 {
-    font-family: "Oswald", sans-serif;
+    font-family: $main-font;
     color: #000;
-    font-size: 2rem;
+    font-size: $bigger-font-size;
   }
 }
 </style>

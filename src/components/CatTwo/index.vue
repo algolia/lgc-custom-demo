@@ -98,7 +98,7 @@ export default {
       .sort-and-stat {
         position: absolute;
         top: -1rem;
-        font-size: 0.8rem;
+        font-size: $small-font-size;
       }
     }
   }

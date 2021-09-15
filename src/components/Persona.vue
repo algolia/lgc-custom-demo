@@ -55,7 +55,7 @@ export default {
 
   ::v-deep .dropdown-toggle {
     color: $main-color;
-    font-size: 1rem;
+    font-size: $small-font-size;
     font-weight: 500;
     text-transform: uppercase;
     padding: 8px 20px 8px 20px;

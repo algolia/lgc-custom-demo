@@ -127,7 +127,7 @@ export default {
     }
     p {
       font-weight: 300;
-      font-size: 0.8rem;
+      font-size: $small-font-size;
       display: flex;
       flex-direction: column;
       span {
@@ -146,7 +146,7 @@ export default {
     border: 2px solid black;
     padding: 0.5rem;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: $small-font-size;
     text-align: center;
   }
   .accreditations {
@@ -154,7 +154,7 @@ export default {
     border: 2px solid #4a90e2;
     padding: 0.5rem;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: $small-font-size;
     margin-bottom: 0.5rem;
     text-align: center;
   }
@@ -242,20 +242,20 @@ export default {
 }
 
 .federated-title {
-  margin-left: 3rem;
+  margin-left: 3.5rem;
   margin-bottom: 1rem;
 }
 
 .prices {
   span {
     color: $second-color;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 
 /* Not Found */
 .not-found {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 30px;
   text-align: center;
   span {
