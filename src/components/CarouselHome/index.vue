@@ -5,7 +5,7 @@
   >
     <div class="carousel-container">
       <h3>Our Products</h3>
-      <ais-configure :hits-per-page.camel="7" />
+      <ais-configure :hits-per-page.camel="7" ruleContexts="carousel-home"/>
       <HitsCarouselHome />
     </div>
   </ais-instant-search>

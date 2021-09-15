@@ -33,7 +33,17 @@
           </div>
           <div>
             <p>
-              Cas number: <span class="bold">{{ item.listCASNumber[0] }}</span>
+              Cas number:
+              <span
+                class="bold"
+                v-for="(tag, index) in item.listCASNumber"
+                :key="tag"
+              >
+                <ais-highlight
+                  :hit="item"
+                  :attribute="'listCASNumber.' + index"
+                />
+              </span>
             </p>
             <p>
               Molecular weight:
