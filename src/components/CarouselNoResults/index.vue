@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-container">
     <ais-instant-search :search-client="searchClient" :index-name="appConfig.mainIndex">
-      <ais-configure :hits-per-page.camel="7">
+      <ais-configure :hits-per-page.camel="6">
         <VirtualSearchBox :query="newQuery" style="display: none" />
         <HitsCarouselBought />
       </ais-configure>

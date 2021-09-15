@@ -21,6 +21,9 @@ const SearchModule = {
     },
     closeModal({commit}){
       commit("SELECTED_PRODUCT", null);
+    },
+    deleteProducts({commit}){
+      commit("DELETE_PRODUCTS")
     }
   },
   mutations: {
@@ -30,6 +33,9 @@ const SearchModule = {
     SELECTED_PRODUCT(state, value) {
       state.ProductDetails = value;
     },
+    DELETE_PRODUCTS(state){
+      state.ProductDetails = null
+    }
   },
 };
 

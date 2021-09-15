@@ -14,7 +14,7 @@
             refine($event.currentTarget.value),
               modifQuery($event.currentTarget.value)
           "
-          @click="svgClick()"
+          @click="svgClick(), deleteProducts()"
           @keyup.enter="searchNewQuery()"
         />
         <input
@@ -40,7 +40,7 @@ export default {
   name: "SearchBox",
   methods: {
     ...mapActions("HeaderModule", ["svgClick", "searchNewQuery"]),
-    ...mapActions("SearchModule", ["modifQuery"]),
+    ...mapActions("SearchModule", ["modifQuery", "deleteProducts"]),
     sendQuery() {
  
     },

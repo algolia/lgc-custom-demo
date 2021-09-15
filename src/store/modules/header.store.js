@@ -57,10 +57,17 @@ const HeaderModule = {
       state.showModal = false;
     },
     SVG_CLICK(state) {
-      state.showFederatedSearch = !state.showFederatedSearch;
-      state.catTwo = false;
-      state.catOne = false;
-      state.showModal = !state.showModal;
+      if (state.showModal === true) {
+        state.showModal = false;
+        state.showFederatedSearch = !state.showFederatedSearch;
+        state.catTwo = false;
+        state.catOne = false;
+      } else {
+        state.showFederatedSearch = !state.showFederatedSearch;
+        state.catTwo = false;
+        state.catOne = false;
+        state.showModal = !state.showModal;
+      }
     },
     CAT_ONE_FUNCTION(state) {
       state.catOne = true;
@@ -70,10 +77,22 @@ const HeaderModule = {
       state.showModal = false;
     },
     SEARCH_NEW_QUERY(state) {
-      state.showFederatedSearch = !state.showFederatedSearch;
-      state.showModal = !state.showModal;
-      state.catTwo = false;
-      state.catOne = true;
+      // if (state.showModal === true) {
+      //   state.showModal = false;
+      // }
+      if (state.showModal === true && state.catOne === true) {
+        console.log("je suis dans le if");
+        state.showModal = false;
+        state.showFederatedSearch = !state.showFederatedSearch;
+        state.catTwo = false;
+        state.catOne = false;
+      } else {
+        console.log("je suis dans le else");
+        state.showFederatedSearch = !state.showFederatedSearch;
+        state.showModal = !state.showModal;
+        state.catTwo = false;
+        state.catOne = true;
+      }
     },
     CLOSE_MODAL(state) {
       state.showFederatedSearch = false;
