@@ -34,21 +34,23 @@
           <div>
             <p>
               Cas number:
-              <span
-                class="bold"
-                v-for="(tag, index) in item.listCASNumber"
-                :key="tag"
-              >
-                <ais-highlight
-                  :hit="item"
-                  :attribute="'listCASNumber.' + index"
-                />
+              <span class="bold" style="display-flex">
+                <ais-highlight :hit="item" :attribute="'listCASNumber.' + 0" />
               </span>
             </p>
             <p>
               Molecular weight:
               <span class="bold">{{ item.listMolecularWeight[0] }}</span>
             </p>
+          </div>
+          <div
+            v-if="item.listCASNumber.length - 1 > 0"
+            style="margin: 0px !important;
+    position: absolute;
+    top: 9px;
+    right: 145px;"
+          >
+            <p class="more">+ {{ item.listCASNumber.length - 1 }} more</p>
           </div>
         </div>
         <div class="btn-infos">
@@ -161,6 +163,7 @@ export default {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      position: relative;
 
       .infos {
         display: flex;
@@ -296,5 +299,8 @@ export default {
       font-weight: 300;
     }
   }
+}
+.more {
+  font-size: 0.8rem;
 }
 </style>
