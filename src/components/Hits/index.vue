@@ -1,7 +1,7 @@
 <template>
   <ais-hits>
     <div
-      @click="selectedProduct(item), svgClick()"
+      @click="selectedProduct(item)"
       class="hit-item-sr"
       slot="item"
       slot-scope="{ item }"
