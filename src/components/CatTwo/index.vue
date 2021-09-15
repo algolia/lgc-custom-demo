@@ -89,11 +89,12 @@ export default {
     width: 95%;
     margin: 0 auto;
     .filters{
-      width: 100%;
+      width: 20%;
     }
     .hits-wrapper {
       position: relative;
       margin-top: 0rem;
+      width: 80%;
       .sort-and-stat {
         position: absolute;
         top: -1rem;

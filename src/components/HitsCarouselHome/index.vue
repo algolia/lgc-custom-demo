@@ -57,11 +57,12 @@ export default {
       }
     }
     .infos {
+      overflow: hidden;
       .title {
         font-size: 0.9rem;
-        text-overflow: ellipsis;
-        overflow: hidden;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-family: "Oswald", sans-serif;
         color: #000;
       }
