@@ -2,13 +2,23 @@
   <div class="search-page">
     <Banner />
     <div class="hits-page">
-      <Filters :showFilter="showFilter" />
-        <div class="hits-wrapper">
+      <ais-state-results>
+        <template slot-scope="{ hits }">
+          <Filters :showFilter="showFilter" v-if="hits.length" />
+          <div v-else></div>
+        </template>
+      </ais-state-results>
+      <div class="hits-wrapper">
         <div class="sort-and-stat">
-          <ais-stats />
-          </div>
-     
-          <!-- <ais-sort-by
+          <ais-state-results>
+            <template slot-scope="{ hits }">
+              <ais-stats v-if="hits.length" />
+              <div v-else></div>
+            </template>
+          </ais-state-results>
+        </div>
+
+        <!-- <ais-sort-by
             :items="[
               {
                 value: 'rayban_merged',
@@ -24,21 +34,45 @@
               },
             ]"
           /> -->
-        
-        <ais-configure :userToken="userToken()" :hits-per-page.camel="21"  :enable-personalization.camel="true" />
+
+        <ais-configure
+          :userToken="userToken()"
+          :hits-per-page.camel="21"
+          :enable-personalization.camel="true"
+        />
         <transition name="fade">
-         <Hits />
+          <ais-state-results>
+            <template slot-scope="{ query, hits }">
+              <!-- First condition -->
+              <div v-if="!hits.length">
+                <p class="not-found">
+                  Hmmmm, we didn't find anything for
+                  <span>'{{ query }}'</span>.<br />
+                  Try a different search term or check out our suggestions below
+                </p>
+                <CarouselNoResults :query="query" />
+              </div>
+              <!-- Second condition -->
+              <Hits v-else />
+            </template>
+          </ais-state-results>
         </transition>
       </div>
     </div>
-       <ais-pagination />
+    <ais-state-results>
+      <template slot-scope="{ hits }">
+        <ais-pagination v-if="hits.length"/>
+        <div v-else></div>
+      </template>
+    </ais-state-results>
   </div>
 </template>
 
 <script>
 import Filters from "@/components/Filters";
 import Banner from "../Banner/index.vue";
-import Hits from "../Hits/index.vue"
+import CarouselNoResults from "@/components/CarouselNoResults";
+import Hits from "../Hits/index.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "catOne",
@@ -50,7 +84,8 @@ export default {
   components: {
     Filters,
     Banner,
-    Hits
+    Hits,
+    CarouselNoResults,
   },
   methods: {
     showFiltersMethod() {
@@ -75,7 +110,6 @@ export default {
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
-    
   },
 };
 </script>

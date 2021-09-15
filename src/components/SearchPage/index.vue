@@ -219,6 +219,7 @@ export default {
   background-color: white;
   padding: 1rem;
   margin: 1rem;
+  cursor: pointer;
   // @include hit-list;
 }
 
